@@ -24,25 +24,15 @@ In the provided code, inside the `HMM tagger.py` file, a `HMM` class is defined 
 
 At the top of the code, the `HMM_main.py` has to be called by python to call `HMM_numpy` object. This file, in addition to calling the `HMM_numpy` object which respectively setups HMM distributions and Viterbi algorithm, it reads and writes sentences from and to file objects. The syntax to call this code, wether you want to evaluate the model on *dev set* or test it on *test set* is as below:</br></br>
 **Evaluate the model:**
-`$ python ./main HMM.py training_file dev_file`</br>
-Test the model:</br>
-`$ python ./main HMM.py training_file dev_file test_file`</br>
+`$ python ./HMM_main.py training_file dev_file`</br>
+**Test the model:**
+`$ python ./HMM_main.py training_file dev_file test_file`</br>
 
 To run the code, make sure *python 3* is used.</br>
 
-__Data:__ The dataset is a large corpus of labeled training and testing data,
-consisting of nearly 1 million words and 50,000 sentences. The file format of the datasets is:
-each line consists of a word, followed by a space, followed by one of 12 part-of-speech tags: ADJ (adjective),
-ADV (adverb), ADP (adposition), CONJ (conjunction), DET (determiner), NOUN, NUM (number), PRON
-(pronoun), PRT (particle), VERB, X (foreign word), and . (punctuation mark). Sentence boundaries are
-indicated by blank lines. </br>
-
-label.py is the main program, pos scorer.py, which has the scoring code, and pos solver.py, which contains the actual
-part-of-speech estimation code. The program takes as input two filenames: a training file and a testing file and displays accuracy using simple probability, Bayes net variable elimination method and Viterbi algorithm to find the maximum a posteriori (MAP). </br> </br>
-It also displays the logarithm of the posterior probability for each solution it finds, as well as a
-running evaluation showing the percentage of words and whole sentences that have been labeled correctly
-according to the ground truth. </br>
+**Data:** The dataset medium-size corpus of labeled training and testing data,consisting of nearly 1 million words and 40,000 sentences. The file format of the datasets is that each line consists of a word, followed by a space, followed by one of 45 part-of-speech tags: </br>
+`{'RBR', 'WP$', 'VB', 'VBP', 'NNS', ',', '$', 'LS', 'NN', 'VBG', ')', 'JJR', 'TO', 'POS', 'RP', 'MD', 'JJS', 'IN', 'JJ', 'PDT', 'DT', "''", 'VBN', 'FW', 'VBD', 'EX', 'PRP', '(', 'CD', 'UH', '#', 'VBZ', 'PRP$', 'CC', ':', 'NNP', 'NNPS', '.', 'WRB', 'RB', 'SYM', 'WDT', '``', 'WP', 'RBS'}` <\br>
 
 ## Results
-Using a training set of size 39,832 sentences the HMM model is trained and then evaluated on a development set of size 1,346 sentences. The code generates POS tags for the dev set and then the provided scorer.py code is used to score the model. The scorer reports an accuracy of 91.9% for the model being evaluated on the dev set. For the un-tagged test set, a POS test.pos le is generated which has all the inferred tags for the words in the test set.
+Using a training set of size 39,832 sentences the HMM model is trained and then evaluated on a development set of size 1,346 sentences. The code generates POS tags for the dev set and then the provided scorer.py code is used to score the model. The scorer reports an accuracy of **91.9%** for the model being evaluated on the *dev set*. For the untagged test set, a `POS_test.pos` file is generated which has all the inferred tags for the words in the *test set*.
 
