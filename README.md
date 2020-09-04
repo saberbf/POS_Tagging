@@ -8,9 +8,9 @@ __Code Structure:__
 A Part-of-Speech (POS) tagging is assumed to be a Markov Process with tags being assumed as hidden states and each observed word in a sentence as observed data. The Markov Process is relying on the facts that:
 * At each state, the observed data is conditionally independent of previous states and is just conditionally dependent on the current state.
 * Each state is just conditionally dependent on the immediate previous state and is conditionally independent of any state beyond or before.
-Using Hidden Markov Model (HMM), this Markov Process can be learned in a stochastic approach. The basic components of a HMM model for POS
-tagging are three distributions:
-* Initial Distribution, PS(Ti): Probability of a sentence in the corpus be-
+
+Using Hidden Markov Model (HMM), this Markov Process can be learned in a stochastic approach. The basic components of a HMM model for POS tagging are three distributions:
+**Initial Distribution, PS(Ti):** Probability of a sentence in the corpus be-
 gins with Ti in the Tag Set.
 Transition distribution, PT (Tj jTi): Probability of a transition to tag Tj
 given the current state is tag Ti
