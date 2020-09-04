@@ -4,6 +4,16 @@ Natural language processing (NLP) is an important research area in artificial in
 at least the 1950’s. One of the most basic problems in NLP is part-of-speech tagging, in which the goal is to mark every word in a sentence with its part of speech (noun, verb, adjective, etc.). This is a first step
 towards extracting semantics from natural language text.</br></br>
 
+The goal of this project is to tag all the words in an unseen Test
+corpus. To achieve this goal, a tagged Train corpus along with a tagged
+Development corpus are provided to train and evaluate a model. As
+model, for this sequential task, a bi-gram Hidden Markov Model is
+used. The HMM model is optimized using a Viterbi Algorithm. Also,
+to avoid zero probability for the words in the Test corpus which are
+not already observed in the training set, a Laplace Smoothing method
+is used. The Development set is tagged to be able to score the model.
+The accuracy of the POS tagging is reported at the end of this brief.
+
 __Data:__ The dataset is a large corpus of labeled training and testing data,
 consisting of nearly 1 million words and 50,000 sentences. The file format of the datasets is:
 each line consists of a word, followed by a space, followed by one of 12 part-of-speech tags: ADJ (adjective),
