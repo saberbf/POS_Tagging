@@ -4,7 +4,7 @@ Natural language processing (NLP) is an important research area in artificial in
 
 The goal of this project is to tag all the words in an unseen Test corpus. To achieve this goal, a tagged Train corpus along with a tagged Development corpus are provided to train and evaluate a model. As model, for this sequential task, a bi-gram Hidden Markov Model is used. The HMM model is optimized using a Viterbi Algorithm. Also, to avoid zero probability for the words in the Test corpus which are not already observed in the training set, a Laplace Smoothing method is used. The Development set is tagged to be able to score the model. The accuracy of the POS tagging is reported at the end of this brief. 
 
-__Code Structure:__
+## Code Structure:
 A Part-of-Speech (POS) tagging is assumed to be a Markov Process with tags being assumed as hidden states and each observed word in a sentence as observed data. The Markov Process is relying on the facts that:
 * At each state, the observed data is conditionally independent of previous states and is just conditionally dependent on the current state.
 * Each state is just conditionally dependent on the immediate previous state and is conditionally independent of any state beyond or before.
