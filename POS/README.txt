@@ -11,16 +11,15 @@ There are 2 possible versions of each file in this dataset.
 2) file.words -- one token per line, with blank lines between sentences.
    Format of an input file for a tagging program.
 
-For this assignment, we are distributing the following files:
+The following files are ditributed in for this project:
 
 POS_train.pos  -- to use as the training corpus
 
-POS_dev.words   -- to use as your development set (for testing your system)
+POS_dev.words   -- to use as development set
 
-POS_dev.pos     -- to use to check how well your system is doing
+POS_dev.pos     -- to use to check how well the system is doing
 
-POS_test.words -- to run your system on.  You should produce a file in
-	     	the .pos format as your output and submit it as per the
-		submission instructions to be announced.
+POS_test.words -- to run the model on.  The output file is in
+	     	the .pos format .
 
-scorer.py -- the scorer we develop to evaluate the output files
+scorer.py -- the scorer is to evaluate the output files
