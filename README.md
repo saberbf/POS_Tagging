@@ -11,26 +11,27 @@ A Part-of-Speech (POS) tagging is assumed to be a Markov Process with tags being
 
 Using Hidden Markov Model (HMM), this Markov Process can be learned in a stochastic approach. The basic components of a HMM model for POS tagging are three distributions:
 
-**Initial Distribution, P<sub>S</sub>(T<sub>i</sub>):** Probability of a sentence in the corpus begins with Ti in the Tag Set.
+**Initial Distribution, P<sub>S</sub>(T<sub>i</sub>):** Probability of a sentence in the corpus begins with T<sub>i</sub> in the Tag Set.
 
-**Transition distribution, PT (Tj jTi):** Probability of a transition to tag Tj
-given the current state is tag Ti
-Emission distribution, PE(Wj jTi): Probability of observing the word Wj
-given the current state is tag Ti
-The purpose of the POS tagger is to nd the most likely sequence of
-tags for a given sentence. For this purpose, we need to maximize the joint
-posterior distribution of latent variables, in this case tags, given a sequence
-of observations, in this case words in a training corpus. To be able to imple-
-ment such optimizer on the HMM model, a dynamic programming algorithm,
-called Viterbi Algorithm is used. This algorithm takes in the aforemen-
-tioned distributions and iteratively nds a sequence of tags which maximizes
+**Transition distribution, P<sub>T</sub> (T<sub>j</sub>|T<sub>i</sub>):** Probability of a transition to tag T<sub>j</sub> given the current state is tag T<sub>i</sub>
+
+**Emission distribution, P<sub>E</sub>(W<sub>j</sub>|T<sub>i</sub>):** Probability of observing the word W<sub>j</sub> given the current state is tag T<sub>i</sub>
+
+The purpose of the POS tagger is to find the most likely sequence of tags for a given sentence. For this purpose, we need to maximize the joint posterior distribution of latent variables, in this case tags, given a sequence of observations, in this case words in a training corpus. To be able to implement such optimizer on the HMM model, a dynamic programming algorithm, called Viterbi Algorithm is used. This algorithm takes in the aforementioned distributions and iteratively finds a sequence of tags which maximizes
 this probability.
-In the provided code, inside the HMM tagger.py le, a HMM class is
-dened which does all the word counts required to setup the Initial distri-
-bution log init dist , Transition probability matrix log tran dist , and
-Emission distributions log emit dist . Also, to avoid overtting to the
-training set and under-weighting the unseen words, a Laplace Smoothing
-method is used. The ( Laplace smoothing ) method under the HMM class
+
+In the provided code, inside the `<HMM tagger.py>` file, a HMM class is defined which does all the word counts required to setup the Initial distribution log init dist , Transition probability matrix log tran dist , and Emission distributions log emit dist . Also, to avoid overfitting to the training set and under-weighting the unseen words, a Laplace Smoothing method is used. The ( Laplace smoothing ) method under the HMM class is responsible to form the distributions out of word/tag counts in addition to smoothing these distributions. HMM_numpy , inherits the distributions from the HMM_class, and using Viterbi(sentence) method, calculates optimal sequence of tags for a given sentence. This method returns the most probable sequence.
+At the top of the code, the HMM main.py has to be called by python
+to call HMM numpy object. This le, in addition to calling the HMM numpy
+object which respectively setups HMM distributions and Viterbi algorithm,
+it reads and writes sentences from and to le objects. The syntax to call this
+code, wether you want to evaluate the model on dev set or test it on test set
+is as below:
+Evaluate the model:
+$ python ./main HMM.py training file dev file
+Test the model:
+$ python ./main HMM.py training file dev file test file
+To run the code, make sure python 3 is used.
 
 __Data:__ The dataset is a large corpus of labeled training and testing data,
 consisting of nearly 1 million words and 50,000 sentences. The file format of the datasets is:
