@@ -31,7 +31,7 @@ At the top of the code, the `HMM_main.py` has to be called by python to call `HM
 To run the code, make sure *python 3* is used.</br>
 
 **Data:** The dataset medium-size corpus of labeled training and testing data,consisting of nearly 1 million words and 40,000 sentences. The file format of the datasets is that each line consists of a word, followed by a space, followed by one of 45 part-of-speech tags: </br>
-`{'RBR', 'WP$', 'VB', 'VBP', 'NNS', ',', '$', 'LS', 'NN', 'VBG', ')', 'JJR', 'TO', 'POS', 'RP', 'MD', 'JJS', 'IN', 'JJ', 'PDT', 'DT', "''", 'VBN', 'FW', 'VBD', 'EX', 'PRP', '(', 'CD', 'UH', '#', 'VBZ', 'PRP$', 'CC', ':', 'NNP', 'NNPS', '.', 'WRB', 'RB', 'SYM', 'WDT', '``', 'WP', 'RBS'}` <\br>
+`{'RBR', 'WP$', 'VB', 'VBP', 'NNS', ',', '$', 'LS', 'NN', 'VBG', ')', 'JJR', 'TO', 'POS', 'RP', 'MD', 'JJS', 'IN', 'JJ', 'PDT', 'DT', "''", 'VBN', 'FW', 'VBD', 'EX', 'PRP', '(', 'CD', 'UH', '#', 'VBZ', 'PRP$', 'CC', ':', 'NNP', 'NNPS', '.', 'WRB', 'RB', 'SYM', 'WDT', '``', 'WP', 'RBS'}` </br>
 
 ## Results
 Using a training set of size 39,832 sentences the HMM model is trained and then evaluated on a development set of size 1,346 sentences. The code generates POS tags for the dev set and then the provided scorer.py code is used to score the model. The scorer reports an accuracy of **91.9%** for the model being evaluated on the *dev set*. For the untagged test set, a `POS_test.pos` file is generated which has all the inferred tags for the words in the *test set*.
